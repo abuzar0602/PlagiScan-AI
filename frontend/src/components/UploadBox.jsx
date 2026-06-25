@@ -34,11 +34,7 @@ function UploadBox() {
     try {
       setLoading(true);
 
-      const response = await axios.post(
-        "https://plagiscan-ai.onrender.com/api/scan",
-        formData
-      );
-
+      const response = await api.post("/scan", formData);
       setResult(response.data);
     } catch (error) {
       console.error(error);
