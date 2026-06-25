@@ -1,3 +1,5 @@
+import os
+
 from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,
@@ -5,7 +7,13 @@ from reportlab.platypus import (
 )
 from reportlab.lib.styles import getSampleStyleSheet
 
+
 def generate_report(filepath, data):
+
+    os.makedirs(
+        os.path.dirname(filepath),
+        exist_ok=True
+    )
 
     doc = SimpleDocTemplate(filepath)
 
@@ -31,21 +39,21 @@ def generate_report(filepath, data):
 
     content.append(
         Paragraph(
-            f"Similarity Score: {data['similarity']}%",
+            f"Similarity Score: {data['similarity_score']}%",
             styles["Normal"]
         )
     )
 
     content.append(
         Paragraph(
-            f"Risk Level: {data['risk']}",
+            f"Risk Level: {data['risk_level']}",
             styles["Normal"]
         )
     )
 
     content.append(
         Paragraph(
-            f"Total Words: {data['words']}",
+            f"Total Words: {data['total_words']}",
             styles["Normal"]
         )
     )

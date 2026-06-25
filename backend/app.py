@@ -26,6 +26,10 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # Upload folder
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+REPORT_FOLDER = "reports"
+
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+os.makedirs(REPORT_FOLDER, exist_ok=True)
 
 db.init_app(app)
 
@@ -194,33 +198,41 @@ def test_scan():
 @app.route("/api/report")
 def download_report():
 
-    latest_scan = Scan.query.order_by(
-        Scan.id.desc()
-    ).first()
+    try:
+        latest_scan = Scan.query.order_by(
+            Scan.id.desc()
+        ).first()
 
-    if not latest_scan:
-        return {
-            "error": "No scan history found"
-        }, 404
+        if not latest_scan:
+            return jsonify({
+                "error": "No scan history found"
+            }), 404
 
-    filepath = os.path.join(
-        "reports",
-        "plagiarism_report.pdf"
-    )
+        filepath = os.path.join(
+            os.path.dirname(__file__),
+            "reports",
+            "plagiarism_report.pdf"
+        )
 
-    data = {
-        "filename": latest_scan.filename,
-        "similarity": latest_scan.similarity_score,
-        "risk": latest_scan.risk_level,
-        "words": latest_scan.total_words
-    }
+        print("PDF PATH:", filepath)
 
-    generate_report(filepath, data)
+        data = latest_scan.to_dict()
 
-    return send_file(
-        filepath,
-        as_attachment=True
-    )
+        print("DATA:", data)
+
+        generate_report(filepath, data)
+
+        return send_file(
+            filepath,
+            as_attachment=True,
+            download_name="plagiarism_report.pdf"
+        )
+
+    except Exception as e:
+        print("REPORT ERROR:", str(e))
+        return jsonify({
+            "error": str(e)
+        }), 500
 if __name__ == "__main__":
     app.run(
         debug=True,

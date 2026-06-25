@@ -2,6 +2,10 @@ import { useState } from "react";
 import api from "../services/api";
 import SimilarityMeter from "./SimilarityMeter";
 import { FiUploadCloud } from "react-icons/fi";
+const API_URL =
+  import.meta.env.DEV
+    ? "http://127.0.0.1:5000"
+    : "https://plagiscan-ai.onrender.com";
 
 function UploadBox() {
   const [files, setFiles] = useState([]);
@@ -86,7 +90,7 @@ function UploadBox() {
           <button
   onClick={() =>
     window.open(
-      "https://plagiscan-ai.onrender.com/api/report",
+      `${API_URL}/api/report`,
       "_blank"
     )
   }

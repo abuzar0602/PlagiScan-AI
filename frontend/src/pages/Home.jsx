@@ -37,8 +37,7 @@ function Home() {
       <UploadBox />
       <footer className="footer">
   <p>
-    © 2026 PlagiScan AI | Built with React,
-    Flask & SQLite
+    © 2026 PlagiScan-AI 
   </p>
 </footer>
 </div>
