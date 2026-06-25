@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../services/api";
 import Navbar from "../components/Navbar";
 
 function History() {
@@ -7,8 +8,7 @@ function History() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("https://plagiscan-ai.onrender.com/api/history")
+    api.get("/history")
       .then((res) => {
         setHistory(res.data);
         setLoading(false);

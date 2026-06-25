@@ -1,6 +1,6 @@
 import { useState } from "react";
+import api from "../services/api";
 import SimilarityMeter from "./SimilarityMeter";
-import axios from "axios";
 import { FiUploadCloud } from "react-icons/fi";
 
 function UploadBox() {
@@ -121,7 +121,6 @@ function UploadBox() {
         </div>
       )}
     </>
-  );
-}
+  );}
 
 export default UploadBox;

@@ -42,7 +42,7 @@ function Home() {
   </p>
 </footer>
 </div>
-S
+
     </>
   );
 }
