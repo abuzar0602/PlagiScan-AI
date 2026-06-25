@@ -8,7 +8,7 @@ function History() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/api/history")
+      .get("https://plagiscan-ai.onrender.com/api/history")
       .then((res) => {
         setHistory(res.data);
         setLoading(false);

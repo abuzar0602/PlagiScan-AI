@@ -35,7 +35,7 @@ function UploadBox() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://127.0.0.1:5000/api/scan",
+        "https://plagiscan-ai.onrender.com/api/scan",
         formData
       );
 
@@ -90,7 +90,7 @@ function UploadBox() {
           <button
   onClick={() =>
     window.open(
-      "http://127.0.0.1:5000/api/report",
+      "https://plagiscan-ai.onrender.com/api/report",
       "_blank"
     )
   }

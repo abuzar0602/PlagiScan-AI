@@ -3,3 +3,4 @@ uploads/
 reports/
 instance/
 *.pyc
+*.sqlite3

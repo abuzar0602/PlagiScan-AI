@@ -5,6 +5,7 @@ function Home() {
   return (
     <>
       <Navbar />
+      <div className="container">
 
       {/* Hero Section */}
       <div className="hero">
@@ -40,6 +41,8 @@ function Home() {
     Flask & SQLite
   </p>
 </footer>
+</div>
+S
     </>
   );
 }
