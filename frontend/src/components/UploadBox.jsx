@@ -88,12 +88,10 @@ function UploadBox() {
         <div className="results-container">
           <h2>Results</h2>
           <button
-  onClick={() =>
-    window.open(
-      `${API_URL}/api/report`,
-      "_blank"
-    )
-  }
+  onClick={() => {
+    window.location.href =
+      "https://plagiscan-ai.onrender.com/api/report";
+  }}
 >
   Download Report
 </button>
