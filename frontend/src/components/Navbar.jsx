@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
+import { FiShield } from "react-icons/fi";
 
 function Navbar() {
   return (
-    <nav>
-      <h2>PlagiScan AI</h2>
-
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/history">History</Link>
+    <header className="navbar">
+      <div className="logo">
+        <FiShield />
+        <span>PlagiScan AI</span>
       </div>
-    </nav>
+
+      <nav className="nav-menu">
+        <Link to="/">    Home    </Link>
+        <Link to="/history">    History     </Link>
+      </nav>
+
+    </header>
   );
 }
 
