@@ -9,7 +9,7 @@ function Home() {
 
       {/* Hero Section */}
       <div className="hero">
-        <h1>PlagiScan AI</h1>
+        <h1>PlagScan AI</h1>
         <p>AI-Powered Plagiarism Detection System</p>
       </div>
 
@@ -37,7 +37,7 @@ function Home() {
       <UploadBox />
       <footer className="footer">
   <p>
-    © 2026 PlagiScan-AI 
+    © 2026 PlagScan-AI 
   </p>
 </footer>
 </div>

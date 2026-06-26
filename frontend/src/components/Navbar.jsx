@@ -6,7 +6,7 @@ function Navbar() {
     <header className="navbar">
       <div className="logo">
         <FiShield />
-        <span>PlagiScan AI</span>
+        <span>PlagScan AI</span>
       </div>
 
       <nav className="nav-menu">
